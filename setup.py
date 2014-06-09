@@ -13,7 +13,7 @@ readme = open('README.rst').read()
 history = open('CHANGES.rst').read()
 
 requirements = [
-    # TODO: put package requirements here
+    'mutagenx',
 ]
 
 test_requirements = [
