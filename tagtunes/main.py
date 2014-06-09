@@ -12,6 +12,8 @@ as a library rather than a script.
 
 import argparse
 
+from . import __version__
+
 
 def get_tagtunes_args():
     """
@@ -22,7 +24,8 @@ def get_tagtunes_args():
         description='Command-line ID3 tag editor'
     )
 
-    # TODO: parser.add_argument(...)
+    parser.add_argument('--version', action='version',
+                        version='%(prog)s ' + __version__)
 
     args = parser.parse_args()
     return args
