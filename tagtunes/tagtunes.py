@@ -25,12 +25,16 @@ def tree():
     return defaultdict(tree)
 
 
+def get_tags_for_filename(filename):
+    return mutagenx.File(filename, easy=True)
+
+
 def group_by_tags(filenames):
     groupings = tree()
     counter = defaultdict(lambda: 1)
     for filename in filenames:
-        tag_analyzer = mutagenx.File(filename, easy=True)
-        if tag_analyzer is None:
+        tag_analyzer = get_tags_for_filename(filename)
+        if not tag_analyzer:
             continue
         artist = "".join(tag_analyzer.tags['artist'])
         album = "".join(tag_analyzer.tags['album'])

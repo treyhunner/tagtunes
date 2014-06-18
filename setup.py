@@ -20,6 +20,11 @@ test_requirements = [
     # TODO: put package test requirements here
 ]
 
+try:
+    from unittest import mock
+except ImportError:
+    test_requirements.append('mock')
+
 setup(
     name='tagtunes',
     version=__version__,
